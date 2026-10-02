@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhi Gupta | Associate, Full Stack Developer</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #0a0b0d;
+      --card-bg: #12141a;
+      --card-hover: #161922;
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dark: #997508;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-gold: rgba(212, 175, 55, 0.22);
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.04em;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 11, 13, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 1.1rem 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.88rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 3.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .hero-content {
+      flex: 1 1 540px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--border-gold);
+      color: var(--gold-primary);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.25rem;
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ffffff 40%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-role {
+      font-size: 1.25rem;
+      color: var(--gold-primary);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-tagline {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      border-left: 3px solid var(--gold-primary);
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+      max-width: 580px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.75rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+      color: #0a0b0d;
+      border: none;
+    }
+
+    .btn-gold:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Portrait */
+    .hero-image-wrap {
+      flex: 0 0 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .image-frame {
+      width: 290px;
+      height: 380px;
+      border-radius: 18px;
+      border: 2px solid var(--border-gold);
+      overflow: hidden;
+      background: #141720;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .upload-hint {
+      margin-top: 0.85rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 2.1rem;
+      color: var(--gold-primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* Grid Layouts */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      padding: 2rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-primary);
+      background: var(--card-hover);
+    }
+
+    .card-badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-primary);
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.65rem;
+      color: var(--gold-light);
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Skill Bars */
+    .skill-box {
+      margin-bottom: 1.15rem;
+    }
+
+    .skill-box:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-bar-bg {
+      height: 6px;
+      background: #202430;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-primary));
+      border-radius: 4px;
+    }
+
+    /* Contact & Socials */
+    .contact-container {
+      max-width: 650px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      padding: 2.25rem;
+      border-radius: 14px;
+    }
+
+    .social-links-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      padding: 0.5rem 1.2rem;
+      font-size: 0.82rem;
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .social-btn:hover {
+      border-color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--gold-light);
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.85rem;
+      background: #0a0b0d;
+      border: 1px solid var(--border-gold);
+      border-radius: 6px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+    }
+
+    /* Toast */
+    #toast {
+      visibility: hidden;
+      min-width: 260px;
+      background-color: var(--gold-primary);
+      color: #000;
+      text-align: center;
+      border-radius: 6px;
+      padding: 12px 18px;
+      position: fixed;
+      z-index: 100;
+      bottom: 30px;
+      right: 30px;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.4s, fadeout 0.4s 2.6s;
+    }
+
+    @keyframes fadein {
+      from { bottom: 0; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 0; opacity: 0; }
+    }
+
+    footer {
+      border-top: 1px solid var(--border-gold);
+      padding: 2.2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="brand-logo">ABHI GUPTA</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects & Rewards</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="container hero" id="about">
+    <div class="hero-content">
+      <div class="hero-badge">Direct Client Advisory & Development</div>
+      <h1 class="hero-title">Abhi Gupta</h1>
+      <div class="hero-role">Associate, Full Stack Developer</div>
+      <p class="hero-tagline">
+        &ldquo;I do things so great that only Guru Nanak can get the credit&rdquo;
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-gold">Get in Touch</a>
+        <a href="#projects" class="btn btn-outline">View Portfolio & Accolades</a>
+      </div>
+    </div>
+
+    <!-- Portrait Area -->
+    <div class="hero-image-wrap">
+      <div class="image-frame">
+        <img id="user-image" src="profile.jpg" alt="Abhi Gupta" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'">
+      </div>
+      <label class="upload-hint" for="file-input">Preview another local image</label>
+      <input type="file" id="file-input" accept="image/*" style="display: none;">
+    </div>
+  </section>
+
+  <!-- Categorized Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Core Competencies</h2>
+        <p class="section-desc">Pillars of technical execution, threat evaluation, and wealth stewardship.</p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Category 1: Full Stack Developer -->
+        <div class="card">
+          <span class="card-badge">Pillar 01</span>
+          <h3>Full Stack Developer</h3>
+          <p style="margin-bottom: 1.25rem;">Developing responsive interfaces, cross-platform apps, and automated backend APIs.</p>
+          <div class="skill-box">
+            <div class="skill-label"><span>Python</span><span>94%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 94%;"></div></div>
+          </div>
+          <div class="skill-box">
+            <div class="skill-label"><span>React & React Native</span><span>90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+          </div>
+          <div class="skill-box">
+            <div class="skill-label"><span>API Integration & Backends</span><span>92%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Category 2: Security and Management -->
+        <div class="card">
+          <span class="card-badge">Pillar 02</span>
+          <h3>Security & Management</h3>
+          <p style="margin-bottom: 1.25rem;">Executing threat vectors, lab validation, and cloud environment protections.</p>
+          <div class="skill-box">
+            <div class="skill-label"><span>Cybersecurity Operations</span><span>88%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+          </div>
+          <div class="skill-box">
+            <div class="skill-label"><span>Red Team Engagements</span><span>85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+          </div>
+          <div class="skill-box">
+            <div class="skill-label"><span>Cloud Architecture</span><span>87%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 87%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Category 3: Wealth Creation and Management -->
+        <div class="card">
+          <span class="card-badge">Pillar 03</span>
+          <h3>Wealth Creation & Management</h3>
+          <p style="margin-bottom: 1.25rem;">Structuring capital preservation, risk hedging, and financial analytics.</p>
+          <div class="skill-box">
+            <div class="skill-label"><span>Financial Modeling</span><span>92%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+          </div>
+          <div class="skill-box">
+            <div class="skill-label"><span>LLQP Compliant Advisory</span><span>95%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+          </div>
+          <div class="skill-box">
+            <div class="skill-label"><span>Portfolio Risk Structuring</span><span>89%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 89%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Professional Services</h2>
+        <p class="section-desc">Consulting, development, and advisory offerings tailored to scale and protect your operations.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-badge">Engineering</span>
+          <h3>Full Stack Development</h3>
+          <p>End-to-end web and mobile applications engineered with Python, React, and React Native, supported by secure API pipelines.</p>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Next-Gen Delivery</span>
+          <h3>Vibe Coding & Rapid Prototyping</h3>
+          <p>Accelerated product development using AI-assisted agent workflows, transforming conceptual prompts into interactive applications rapidly.</p>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Offensive Security</span>
+          <h3>Red Team & Security Services</h3>
+          <p>Real-world offensive simulations, vulnerability discovery, and systems penetration testing to identify weaknesses before adversaries do.</p>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Licensed Advisory</span>
+          <h3>LLQP Financial Services</h3>
+          <p>Comprehensive life insurance, segregated funds, critical illness coverage, and estate protection aligned with provincial compliance standards.</p>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Strategic Partnerships</span>
+          <h3>Referral & Business Services</h3>
+          <p>Connecting institutions with vetted specialists across lending, corporate structuring, legal advisory, and high-value deal routing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects & Rewards Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Projects & Rewards</h2>
+        <p class="section-desc">Notable technical builds, production deployments, and industry recognitions.</p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Project Item 1 -->
+        <div class="card">
+          <span class="card-badge">Deployed System</span>
+          <h3>Automation Agent Workflow</h3>
+          <p>Engineered multi-source lead ingestion and pipeline automations using Python, pandas, and custom CLI developer agents.</p>
+        </div>
+
+        <!-- Project Item 2 -->
+        <div class="card">
+          <span class="card-badge">Security Engagement</span>
+          <h3>Lab Penetration Testing</h3>
+          <p>Executed structured offensive attack vectors across local target machines, analyzing credential dumping and privilege escalations.</p>
+        </div>
+
+        <!-- Reward / Certification Item 1 -->
+        <div class="card">
+          <span class="card-badge">Licensure</span>
+          <h3>LLQP Certification</h3>
+          <p>Certified Life License Qualification Program credential holder, authorizing professional advisory across life insurance and segregated funds.</p>
+        </div>
+
+        <!-- Reward / Certification Item 2 -->
+        <div class="card">
+          <span class="card-badge">Recognition</span>
+          <h3>Excellence in Client Execution</h3>
+          <p>Acknowledged for delivering cross-domain advisory combining digital automation with high-touch financial strategy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Initiate Contact</h2>
+        <p class="section-desc">Reach out directly via email or submit the inquiry form below.</p>
+      </div>
+
+      <div class="contact-container">
+        <!-- Social Media Outlets: update the href with your profile URLs -->
+        <div class="social-links-wrap">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn">GitHub</a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn">X / Twitter</a>
+          <a href="mailto:abhigupta.lgs@gmail.com" class="social-btn">Direct Email</a>
+        </div>
+
+        <!-- Netlify Form: Automatically captures submissions on free Netlify tier -->
+        <form id="contact-form" name="portfolio-contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="portfolio-contact" />
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="service-interest">Area of Interest</label>
+            <input type="text" id="service-interest" name="interest" placeholder="Full Stack, Red Team, or LLQP Advisory">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Briefly describe your objectives or inquiry..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width: 100%;">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Abhi Gupta. All rights reserved. &bull; Inquiries: <a href="mailto:abhigupta.lgs@gmail.com" style="color: var(--gold-light); text-decoration: none;">abhigupta.lgs@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <div id="toast">Message received!</div>
+
+  <script>
+    // Local image upload previewer
+    const fileInput = document.getElementById('file-input');
+    const userImage = document.getElementById('user-image');
+
+    if (fileInput) {
+      fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(event) {
+            userImage.src = event.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    // Form submission & toast handler
+    const contactForm = document.getElementById('contact-form');
+    const toast = document.getElementById('toast');
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.className = "show";
+      setTimeout(function() {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
+    }
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        if (!window.location.host.includes('netlify')) {
+          e.preventDefault();
+          showToast('Inquiry recorded! Netlify Forms will capture this live.');
+          contactForm.reset();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
